@@ -81,7 +81,6 @@ nav:
     - Why ADP?: why.md
     - Comparisons: comparisons.md
     - FAQ: faq.md
-    - Contributors: contributors.md
   - Guides:
     - How to publish: how_to_publish.md
     - How clients discover: how_agents_search.md
@@ -92,5 +91,5 @@ nav:
   - Ecosystem:
     - Implementations: implementations.md
     - Open Plugins: open_plugins.md
-    - Anthropic's MCP Registry: anthropic_mcp.md
+    - Model Context Protocol: anthropic_mcp.md
     - Zed's ACP Registry: zed_acp.md

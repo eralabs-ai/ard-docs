@@ -29,7 +29,7 @@ Augments have no equivalent surface yet. A capability is not a document to read;
 
 ## The next step
 
-The discovery problem is well recognized, and the work so far comes in two kinds. Foundry's Toolbox and the various MCP registries provide ways to assemble curated sets — a vetted collection a developer can point at. ToolLLM (Qin et al., 2023) and Claude's tool-search take a different step, making selection cheaper by moving it out of the context window: retrieving the relevant augments per query rather than injecting all of them.
+The discovery problem is well recognized, and the work so far comes in two kinds. Foundry's Toolbox provides a way to assemble curated sets — a vetted collection a developer can point at. ToolLLM (Qin et al., 2023) and Claude's tool-search take a different step, making selection cheaper by moving it out of the context window: retrieving the relevant augments per query rather than injecting all of them.
 
 ADP is an **abstraction layer over both.** It pins down just two things and leaves the rest open: how an augment describes itself, and how a client asks the discovery question and reads the answer. The service that answers can be built however its provider chooses — including with the very techniques above. A curated set becomes something any client can call uniformly, an augment published once is found by many clients, and a client reaches augments far beyond its own pre-connected set.
 

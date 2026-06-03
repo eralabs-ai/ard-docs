@@ -1,4 +1,4 @@
-# Anthropic's MCP Registry
+# Model Context Protocol (MCP)
 
 ADP acts as an open, protocol-agnostic discovery envelope designed to ingest, wrap, and index the **Model Context Protocol (MCP)** tool ecosystem.
 
@@ -26,5 +26,5 @@ The Model Context Protocol (MCP) standardizes model-to-data/tool connections. AD
 
 ## Developer value
 
-*   **Federated scaling**: Developers of private or enterprise MCP tools can bypass the centralized `modelcontextprotocol.io` registry altogether and host their servers sovereignly on their own FQDNs.
+*   **Federated scaling**: Developers of private or enterprise MCP tools can host their servers sovereignly on their own FQDNs, with no central directory to register with.
 *   **Zero prompt bloat**: By indexing `representativeQueries` outside the prompt, clients (like Claude Code) can run a semantic search against a discovery service first, feeding the model only the top matching augment schemas dynamically at runtime.

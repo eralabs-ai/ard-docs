@@ -26,7 +26,7 @@ Instead of forcing the model to sort through the noise, ADP moves selection outs
 
 ADP moves away from manually installed, hardcoded integrations toward dynamic runtime discovery.
 
-| Vector | Centralized registries (e.g., MCP Registry) | ADP discovery services |
+| Vector | Centralized registries | ADP discovery services |
 | :--- | :--- | :--- |
 | **Discovery** | Manual registration / gatekeeper approval | Dynamic crawling and indexing (SEO for agents) |
 | **Hosting** | Single central repository database | Self-hosted on publisher domains |

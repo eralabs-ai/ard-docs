@@ -12,12 +12,6 @@ ADP is designed as a **superset** of existing agent and tool discovery approache
 
 ## What about...
 
-### What about the MCP Registry
-
-The entire list of public MCP servers can be indexed natively. The official MCP Registry (`registry.modelcontextprotocol.io`) can remain exactly as it is today while also acting as a federated source of truth that is crawled and made queryable through ADP `POST /search` endpoints. Nothing about the existing registry has to change — ADP simply makes its contents reachable, alongside everything else, through a uniform discovery question.
-
----
-
 ### What about the ACP Agent Registry
 
 The list of ACP agents in [ACP's Agent Registry](https://agentclientprotocol.com/get-started/registry) is already structurally close to the AI Catalog specification. ACP registries can export their directory manifests as standard `ai-catalog.json` feeds, enabling instant web-scale discovery for editor-context agents — without those agents having to be re-registered anywhere.
