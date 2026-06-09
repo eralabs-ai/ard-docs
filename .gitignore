@@ -149,3 +149,7 @@ vite.config.ts.timestamp-*
 .tmp/
 .scratchpad/
 site/
+
+# mkdocs build / staticrypt artifacts
+encrypted/
+.staticrypt.json

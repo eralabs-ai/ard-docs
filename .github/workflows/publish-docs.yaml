@@ -35,6 +35,19 @@ jobs:
             
       - name: Install Dependencies
         run: pip install -r requirements-docs.txt
-        
+
+      - name: Build site
+        run: mkdocs build   # outputs to ./site
+
+      # === Password protection (StatiCrypt) ===
+      # To REMOVE protection later: delete this step and change the deploy
+      # step's path from "encrypted/site" back to "site". Nothing else changes.
+      # Requires repo secret STATICRYPT_PASSWORD (Settings > Secrets > Actions).
+      - name: Encrypt site (StatiCrypt)
+        env:
+          STATICRYPT_PASSWORD: ${{ secrets.STATICRYPT_PASSWORD }}
+        run: npx --yes staticrypt@3 site -r -d encrypted --remember 30 --short -s 9f2b7c1ae4d6580b3c2f1e8a7d4c9b06
+      # === end password protection ===
+
       - name: Deploy to GitHub Pages
-        run: mkdocs gh-deploy --force
+        run: ghp-import --no-jekyll --push --force --branch gh-pages -m "Deploy ${{ github.sha }}" encrypted/site
