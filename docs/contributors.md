@@ -4,8 +4,6 @@
 
 ARDS was designed and reviewed by a core team of agent builders at:
 
-- Amazon
-- Cisco
 - GoDaddy
 - Google
 - HuggingFace
@@ -15,7 +13,9 @@ All of you are building agents, tools, Skills, and more. We encourage you to add
 
 ## Contributors & endorsers
 
+- Amazon
 - Anthropic (pending confirmation)
+- Cisco
 - Nvidia (pending confirmation)
 - SAP (pending confirmation)
 - Snowflake (pending confirmation)
