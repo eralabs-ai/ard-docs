@@ -33,8 +33,11 @@ theme:
     - content.tooltips
     - navigation.footer
     - navigation.indexes
-    - navigation.instant
-    - navigation.instant.progress
+    # navigation.instant disabled: incompatible with StatiCrypt per-page
+    # encryption (instant-loading fetches the encrypted template fragment
+    # and injects it broken). Re-enable when password protection is removed.
+    # - navigation.instant
+    # - navigation.instant.progress
     - navigation.path
     - navigation.sections
     - navigation.top
