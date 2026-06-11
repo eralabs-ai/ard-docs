@@ -1,6 +1,6 @@
 # How to Publish
 
-Exposing your agentic resources (MCP servers, Skills, ACP agents, APIs) to ARDS discovery services is a simple three-step procedure.
+Exposing your agentic resources (MCP servers, Skills, ACP agents, APIs) to ARD discovery services is a simple three-step procedure.
 
 ---
 

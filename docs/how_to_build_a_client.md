@@ -2,7 +2,7 @@
 
 This guide is for developers building an AI **client** — an orchestrator, agent,
 or harness — that should **discover agentic resources at runtime** instead of
-having its tools hardcoded. With ARDS, your client asks a discovery service
+having its tools hardcoded. With ARD, your client asks a discovery service
 *"what is available for this task?"*, picks a resource, and connects to it over
 that resource's own protocol.
 

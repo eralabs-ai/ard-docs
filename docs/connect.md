@@ -1,6 +1,6 @@
 # Connect a chatbot
 
-You can use ARDS directly from a chatbot to **find tools, skills, MCP servers, and
+You can use ARD directly from a chatbot to **find tools, skills, MCP servers, and
 agents for a task** — and decide what to install. The
 [ardp-project/connectors](https://github.com/ardp-project/connectors) repository
 provides ready-made connectors for **Claude, ChatGPT, Microsoft Copilot, and

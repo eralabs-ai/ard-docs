@@ -79,7 +79,7 @@ nav:
   - Home: index.md
   - About:
     - Introduction: introduction.md
-    - Why ARDS?: why.md
+    - Why ARD?: why.md
     - Interoperability: interoperability.md
     - Contributors: contributors.md
     - FAQ: faq.md
@@ -88,5 +88,5 @@ nav:
     - How to publish: how_to_publish.md
     - How to build a client: how_to_build_a_client.md
   - Specifications:
-    - ARDS Specification: spec.md
+    - ARD Specification: spec.md
     - AI Catalog Spec: ai_catalog_spec.md

@@ -2,7 +2,7 @@
 
 **The foundation for federated agentic resource discovery**
 
-ARDS is built directly on top of the **[ai-catalog](https://github.com/Agent-Card/ai-catalog)** specification. The `ai-catalog` standard establishes the base artifact-agnostic data model, progressive trust layer, and verification rules that enable dynamic runtime agentic resource discovery.
+ARD is built directly on top of the **[ai-catalog](https://github.com/Agent-Card/ai-catalog)** specification. The `ai-catalog` standard establishes the base artifact-agnostic data model, progressive trust layer, and verification rules that enable dynamic runtime agentic resource discovery.
 
 ---
 

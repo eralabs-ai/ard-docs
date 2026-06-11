@@ -2,7 +2,7 @@
 
 ## How does discovery work without consuming context window tokens?
 
-Traditional tool selection requires stuffing every available schema into the system prompt. ARDS moves this calculation outside the LLM into a dedicated discovery service (`POST /search`). The orchestrator queries the service with natural language, and it returns only the top two or three most relevant schemas to inject into the prompt.
+Traditional tool selection requires stuffing every available schema into the system prompt. ARD moves this calculation outside the LLM into a dedicated discovery service (`POST /search`). The orchestrator queries the service with natural language, and it returns only the top two or three most relevant schemas to inject into the prompt.
 
 ---
 
@@ -12,15 +12,15 @@ Traditional tool selection requires stuffing every available schema into the sys
 
 ---
 
-## Where does trust come from in ARDS?
+## Where does trust come from in ARD?
 
-**From the curation of the registry, not from the protocol.** ARDS does not make any agentic resource trustworthy — it gives publishers a way to *assert* verifiable identity and provenance, and clients a way to *verify* it. The actual trust decision lives in two places the protocol does not own: the **registry that curates what it indexes and serves**, and the **client that checks the signals before invoking**. ARDS's job is to communicate trust, not to confer it.
+**From the curation of the registry, not from the protocol.** ARD does not make any agentic resource trustworthy — it gives publishers a way to *assert* verifiable identity and provenance, and clients a way to *verify* it. The actual trust decision lives in two places the protocol does not own: the **registry that curates what it indexes and serves**, and the **client that checks the signals before invoking**. ARD's job is to communicate trust, not to confer it.
 
 ---
 
-## What trust signals can ARDS communicate?
+## What trust signals can ARD communicate?
 
-The protocol's role here is narrow and deliberate: it gives a publisher a **mechanism to assert verifiable claims**, and a registry or client a **standard way to check them**. ARDS itself verifies nothing and vouches for no one. An entry can carry:
+The protocol's role here is narrow and deliberate: it gives a publisher a **mechanism to assert verifiable claims**, and a registry or client a **standard way to check them**. ARD itself verifies nothing and vouches for no one. An entry can carry:
 
 - **Domain-anchored identity** — a mechanism to declare a publisher domain in the entry's URN (`urn:ai:acme.com:...`), so identity is rooted in DNS rather than a self-asserted label and can be checked by whoever consumes the entry.
 - **Verified publishers** — a mechanism for a publisher to *demonstrate* they are who they claim: a `trustManifest.identity` (e.g. `did:web`, SPIFFE) that a registry or client cryptographically verifies against the publisher's domain. The protocol carries the claim; the registry or client performs the verification.
@@ -28,7 +28,7 @@ The protocol's role here is narrow and deliberate: it gives a publisher a **mech
 - **Provenance** — a mechanism to declare lineage (`derivedFrom`, `publishedFrom`) that records where a resource came from.
 - **Attestations** — a mechanism to reference verifiable compliance artifacts (SOC2, HIPAA, GDPR, …) so they can be fetched and checked.
 
-In every case ARDS *enables the communication* of a trust signal. Whether the signal checks out, and what weight to give it, is the registry's and the client's decision — not the protocol's.
+In every case ARD *enables the communication* of a trust signal. Whether the signal checks out, and what weight to give it, is the registry's and the client's decision — not the protocol's.
 
 ---
 
@@ -38,20 +38,20 @@ A registry is a **trust boundary defined by its curation policy** — what it ch
 
 ---
 
-## Does ARDS verify that a tool or agent is safe?
+## Does ARD verify that a tool or agent is safe?
 
-**No — and it does not claim to.** Safety is not a property a discovery protocol can compute. What ARDS does is let the relevant facts travel so others can judge. It enables a publisher to **communicate a verifiable identity** (a domain-anchored URN), to **show they are a verified publisher** (a `trustManifest.identity` such as `did:web` or SPIFFE that a registry or client checks against their domain), to ship **signed metadata** (a detached JWS signature proving the record is unaltered), and to declare **provenance** for where the resource came from. The safety call is then made by the **registry that curated the result** and the **client that verifies these signals** before invoking — not by the protocol. The relevance `score` returned by a search is *relevance only* and **MUST NOT** be read as a trust, compliance, or safety rating.
+**No — and it does not claim to.** Safety is not a property a discovery protocol can compute. What ARD does is let the relevant facts travel so others can judge. It enables a publisher to **communicate a verifiable identity** (a domain-anchored URN), to **show they are a verified publisher** (a `trustManifest.identity` such as `did:web` or SPIFFE that a registry or client checks against their domain), to ship **signed metadata** (a detached JWS signature proving the record is unaltered), and to declare **provenance** for where the resource came from. The safety call is then made by the **registry that curated the result** and the **client that verifies these signals** before invoking — not by the protocol. The relevance `score` returned by a search is *relevance only* and **MUST NOT** be read as a trust, compliance, or safety rating.
 
 ---
 
-## Could ARDS make it easier for agents to discover malicious tools?
+## Could ARD make it easier for agents to discover malicious tools?
 
 Discovery is only as permissive as the registry you ask. Because **whoever runs the registry controls the answer set**, a curated or enterprise registry returns only resources it has vetted — a bad actor cannot inject an entry into a registry that did not choose to index it.
 
-ARDS also makes impersonation harder than the status quo, on several concrete fronts:
+ARD also makes impersonation harder than the status quo, on several concrete fronts:
 
 - **Identity** is anchored to a publisher's domain (`urn:ai:google.com:...`), not a self-asserted label.
 - **Verified publishers**: a registry MUST verify that a manifest is actually hosted on — or cryptographically bound (via `did:web`/SPIFFE) to — the domain it claims, so a manifest on `untrusted.com` cannot pose as `urn:ai:google.com:...`.
 - **Signed metadata** lets a client confirm a record was not altered in transit, and **provenance** lets it trace where a resource came from.
 
-Compared with today's ad hoc wiring — copy-pasted endpoints with no identity or provenance — ARDS raises the floor by giving every result a verifiable origin. It does not, on its own, decide what is safe; it **communicates the identity, verification, and provenance signals** that let curated registries and clients refuse what is not.
+Compared with today's ad hoc wiring — copy-pasted endpoints with no identity or provenance — ARD raises the floor by giving every result a verifiable origin. It does not, on its own, decide what is safe; it **communicates the identity, verification, and provenance signals** that let curated registries and clients refuse what is not.

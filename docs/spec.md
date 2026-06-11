@@ -10,7 +10,7 @@
 
 LLMs increasingly rely on external capabilities — MCP tools, A2A agents, skills, and other callable services — to extend their functionality. In this document, we refer to these generically as agentic resources.
 
-The **Agentic Resource Discovery Specification (ARDS)** defines how AI artifacts are cataloged, discovered, and searched across federated networks.
+The **Agentic Resource Discovery Specification (ARD)** defines how AI artifacts are cataloged, discovered, and searched across federated networks.
 
 This version (v0.5) aligns the discovery framework with the broader ai-catalog standard, shifting towards a media-type-driven approach and mandating standard web protocols (REST) for discovery interfaces to ensure maximum interoperability.
 
@@ -18,19 +18,19 @@ This version (v0.5) aligns the discovery framework with the broader ai-catalog s
 
 The prevailing model requires users or developers to explicitly “install” or hardcode each agent before use. As the ecosystem scales to thousands or millions of agents, we need a model where LLMs can discover and invoke agents dynamically, similar to how search engines discover web pages.
 
-Agent descriptions tend to be generic, and most LLMs currently select tools by including all descriptions in the context window — which does not scale. ARDS addresses this by moving discovery outside the LLM into a dedicated search service, where richer signals (representative queries, publisher identity, compliance metadata, usage patterns) can be leveraged without consuming context window tokens.
+Agent descriptions tend to be generic, and most LLMs currently select tools by including all descriptions in the context window — which does not scale. ARD addresses this by moving discovery outside the LLM into a dedicated search service, where richer signals (representative queries, publisher identity, compliance metadata, usage patterns) can be leveraged without consuming context window tokens.
 
 ## 3\. Core Design Principles
 
-ARDS is guided by the following core design principles to ensure scalability, interoperability, and ease of adoption:
+ARD is guided by the following core design principles to ensure scalability, interoperability, and ease of adoption:
 
 ### 3.1 Search-First Discovery
 
-Rather than requiring users or systems to pre-install agents (analogous to the mobile app store paradigm), ARDS promotes a model where agents are discovered dynamically through search. Registries maintain a shared, continuously updated index, making capabilities discoverable the moment they are published.
+Rather than requiring users or systems to pre-install agents (analogous to the mobile app store paradigm), ARD promotes a model where agents are discovered dynamically through search. Registries maintain a shared, continuously updated index, making capabilities discoverable the moment they are published.
 
 ### 3.2 Scalability Beyond Context Windows
 
-Traditional tool selection relies on injecting all descriptions into the LLM's context window, which does not scale. ARDS moves the selection problem outside the LLM into a dedicated search service, leveraging information retrieval techniques to scale to thousands or millions of capabilities without consuming context window tokens.
+Traditional tool selection relies on injecting all descriptions into the LLM's context window, which does not scale. ARD moves the selection problem outside the LLM into a dedicated search service, leveraging information retrieval techniques to scale to thousands or millions of capabilities without consuming context window tokens.
 
 ### 3.3 Artifact Agnostic Envelope
 
@@ -397,10 +397,10 @@ Publishers advertise their capability manifests via the following mechanisms:
 
 Agent Registry instances populate their indexes through ingestion pipelines:
 
-* **Web Ingestion (Required)**: Crawling ai-catalog.json files from discovered URIs. All ARDS implementations MUST support this.  
+* **Web Ingestion (Required)**: Crawling ai-catalog.json files from discovered URIs. All ARD implementations MUST support this.  
 * **Additional Pipelines (Optional)**: Registries may support scanning git repositories, npm registries, or OCI registries as indicated by their configuration.
 
-## 7\. The ARDS API
+## 7\. The ARD API
 
 An Agent Registry **MUST** expose a standard HTTP REST search interface to guarantee universal federation. The operational base URL for these endpoints is discovered dynamically by identifying catalog entries within the static ai-catalog.json manifest that carry the application/ai-registry+json media type, as defined in §4.1.
 

@@ -2,7 +2,7 @@
 
 > Organizing agents, tools, and skills isn't really all that difficult, until you need to do so globally and with cryptographic trust guarantees.
 
-The Agentic Resource Discovery Specification (ARDS) is a lightweight, domain-anchored discovery specification. It defines how agentic resources — MCP servers, A2A cards, Skills, and traditional API tools — are cataloged, searched, and dynamically discovered across composable, federated networks of discovery services.
+The Agentic Resource Discovery Specification (ARD) is a lightweight, domain-anchored discovery specification. It defines how agentic resources — MCP servers, A2A cards, Skills, and traditional API tools — are cataloged, searched, and dynamically discovered across composable, federated networks of discovery services.
 
 ---
 
@@ -14,19 +14,19 @@ Feeding every available agentic resource schema directly into a system prompt wo
 ❌ Walled garden / prompt-stuffing:
 [System Prompt] + [User Query] + [Tool A] + [Tool B] + [Tool C]... = Prompt Bloat
 
-✅ Discovery-first (ARDS):
+✅ Discovery-first (ARD):
 [User Query] ──> [Discovery service (POST /search)] ──> [Top 3 agentic resources] ──> [LLM Context]
 ```
 
-Instead of forcing the model to sort through the noise, ARDS moves selection outside the active context window. The orchestrator queries a dedicated discovery service first, injecting only the top matching schemas into the final prompt.
+Instead of forcing the model to sort through the noise, ARD moves selection outside the active context window. The orchestrator queries a dedicated discovery service first, injecting only the top matching schemas into the final prompt.
 
 ---
 
 ## 2. How it differs from the "app store" model
 
-ARDS moves away from manually installed, hardcoded integrations toward dynamic runtime discovery.
+ARD moves away from manually installed, hardcoded integrations toward dynamic runtime discovery.
 
-| Vector | Centralized registries | ARDS discovery services |
+| Vector | Centralized registries | ARD discovery services |
 | :--- | :--- | :--- |
 | **Discovery** | Manual registration / gatekeeper approval | Dynamic crawling and indexing (SEO for agents) |
 | **Hosting** | Single central repository database | Self-hosted on publisher domains |
@@ -37,7 +37,7 @@ ARDS moves away from manually installed, hardcoded integrations toward dynamic r
 
 ## 3. Decentralized trust (no central kingmakers)
 
-Centralized directories create administrative bottlenecks and unilateral gatekeepers. ARDS avoids this by anchoring logical names directly to DNS domains:
+Centralized directories create administrative bottlenecks and unilateral gatekeepers. ARD avoids this by anchoring logical names directly to DNS domains:
 
 ```text
 urn:ai:acme.com:finance:trading
@@ -51,9 +51,9 @@ urn:ai:acme.com:finance:trading
 
 ## 4. The core mechanics
 
-ARDS operates on a simple envelope design using standard and proposed **IANA media types** (like `application/mcp-server+json` or `application/a2a-agent-card+json`) to wrap different protocols, delegating execution details to the underlying schemas.
+ARD operates on a simple envelope design using standard and proposed **IANA media types** (like `application/mcp-server+json` or `application/a2a-agent-card+json`) to wrap different protocols, delegating execution details to the underlying schemas.
 
-A discovery service answers queries over a **collection it curates — and that collection can be assembled in many ways.** ARDS standardizes how resources are *described* (the `ai-catalog.json` envelope) and *searched* (a REST interface); it does not dictate how a given service builds or ranks its collection.
+A discovery service answers queries over a **collection it curates — and that collection can be assembled in many ways.** ARD standardizes how resources are *described* (the `ai-catalog.json` envelope) and *searched* (a REST interface); it does not dictate how a given service builds or ranks its collection.
 
 ```mermaid
 sequenceDiagram
