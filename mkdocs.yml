@@ -76,6 +76,7 @@ plugins:
 # Navigation
 nav:
   - Home: index.md
+  - Connect a chatbot: connect.md
   - About:
     - Introduction: introduction.md
     - Why ARDS?: why.md
