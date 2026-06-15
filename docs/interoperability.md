@@ -44,7 +44,7 @@ In short: built-in tool search selects among known tools; ARD is the layer that 
 
 ## What is the difference between ARD and Agent Finder?
 
-ARD is the **protocol**. **Agent Finder** is a product — one discovery service built on ARD, among the many the protocol makes possible. A publisher describes an agentic resource once; any number of discovery services, named or not, can then choose to index and serve it.
+ARD is the **protocol**. **[Agent Finder](https://github.com/agentfinder)** is a product — one discovery service built on ARD, among the many the protocol makes possible. A publisher describes an agentic resource once; any number of discovery services, named or not, can then choose to index and serve it.
 
 ---
 

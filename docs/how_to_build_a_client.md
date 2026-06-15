@@ -21,7 +21,7 @@ current without re-shipping the client.
 ## Step 1 — Configure discovery endpoints
 
 A client never invents where to look. Keep a configured list of discovery
-services (registries / Agent Finders) it may query — public, vendor, or your
+services (registries / [Agent Finders](https://github.com/agentfinder)) it may query — public, vendor, or your
 organization's internal one — and let the operator decide what is trusted. The
 [connectors](https://github.com/ards-project/connectors) repo's `agent-finders.json`
 is one example of this pattern.

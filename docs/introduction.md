@@ -1,6 +1,6 @@
 # Agentic Resource Discovery Specification
 
-AI clients are no longer limited to what the model knows. They can use external capabilities — tools, Skills, MCP servers, APIs, workflows, and other agents. We call these capabilities **agentic resources**.
+AI clients are no longer limited to what the model knows. They can use external capabilities — tools, Skills, MCP servers, APIs, workflows, and other agents. We call these capabilities **[agentic resources](glossary.md#agentic-resource)**.
 
 The number of agentic resources is already growing quickly. Some are public, some come from vendors, some are built inside companies; some are narrow tools for a single task, and others are agents or workflows that know how to get something done. That creates a simple problem: **how does an AI client know what is available?**
 
@@ -12,7 +12,7 @@ This is the problem the **Agentic Resource Discovery Specification (ARD)** solve
 
 ARD only handles discovery. The client invokes the agentic resource it selects through that agentic resource's own protocol — MCP, an API, an agent protocol, a workflow system, or something else. ARD sits *before* invocation; it helps the client decide which capability to use.
 
-ARD is not a product. Any number of discovery services can implement it, and **Agent Finder** is one such service. The point is that an agentic resource published once should be discoverable by many clients, and a client should be able to find useful agentic resources well beyond the small set it already knows about.
+ARD is not a product. Any number of [discovery services](glossary.md#discovery-service) can implement it, and **[Agent Finder](https://github.com/agentfinder)** is one such service. The point is that an agentic resource published once should be discoverable by many clients, and a client should be able to find useful agentic resources well beyond the small set it already knows about.
 
 ---
 
