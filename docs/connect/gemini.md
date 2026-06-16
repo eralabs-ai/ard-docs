@@ -7,7 +7,8 @@ arbitrary HTTP, so a Gem there can only describe the behavior, not execute it.
 
 ## Option A — Gem
 
-**Install.** Create a new Gem and paste the instructions from the connectors repo
+**Install.** A Gem is created in the **Gemini app** UI, not from a file. Create a
+new Gem and paste the instructions from the connectors repo
 ([`skills/gemini/`](https://github.com/ards-project/connectors/tree/main/skills/gemini)):
 
 - **Name:** `find-agentic-resources`

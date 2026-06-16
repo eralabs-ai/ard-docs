@@ -7,16 +7,17 @@ makes the request.
 
 ## Option A — Skill
 
-ChatGPT Skills are reusable instruction sets, currently in **beta** and limited to
-**Business, Enterprise, Edu, Teachers, and Healthcare** plans.
+ChatGPT Skills are reusable instruction sets, available on **Business,
+Enterprise, Edu, and Team** plans. Unlike Claude and Copilot, a ChatGPT Skill
+lives in your workspace, not in a file — you add it through the UI.
 
-**Install.** Create a new Skill and paste the instructions from the connectors
-repo ([`skills/chatgpt/`](https://github.com/ards-project/connectors/tree/main/skills/chatgpt)):
+**Install.** In your ChatGPT workspace, use **Add skill** to open the Skills
+editor, then create the skill from the connectors repo
+([`skills/chatgpt/`](https://github.com/ards-project/connectors/tree/main/skills/chatgpt)):
 
 - **Name:** `find-agentic-resources`
-- **Description / instructions:** copy the body of that file (it tells ChatGPT to
-  ask which Agent Finder to query, present the ranked results, and never
-  auto-install).
+- **Instructions:** paste the body of that file (ask which Agent Finder to query,
+  present the ranked results, and never auto-install).
 
 A Skill on its own can't make network calls, so pair it with **Option B** (MCP
 connector) or a custom **Action** whose OpenAPI calls
@@ -24,11 +25,12 @@ connector) or a custom **Action** whose OpenAPI calls
 
 ### How to invoke it
 
-Ask ChatGPT in plain language:
+ChatGPT can use the skill automatically when it's relevant, or you can invoke it
+explicitly by @-mentioning it:
 
-> "Find me a tool for converting CSVs to charts."
+> @find-agentic-resources find me a tool for converting CSVs to charts
 
-The Skill activates, asks which Agent Finder to search, runs the query via the
+Either way it asks which Agent Finder to search, runs the query via the
 connector/Action, and presents the matches for you to pick from.
 
 ## Option B — Remote MCP connector (Developer mode)

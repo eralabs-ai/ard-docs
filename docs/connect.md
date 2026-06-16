@@ -56,6 +56,16 @@ Most setups use **both**: the MCP connector (or an Action) makes the actual call
 and the Skill/instructions supply the "ask first, present, never auto-install"
 behavior.
 
+How you add the Skill itself differs by client, and there is rarely a single
+"install" button:
+
+- **Claude and GitHub Copilot** — a `SKILL.md` file you drop into a skills folder (`~/.claude/skills/`, `~/.copilot/skills/`), or install with a command.
+- **ChatGPT** — a Skill you add in the workspace UI (Business / Enterprise / Edu / Team plans).
+- **Gemini** — a Gem you create in the Gemini app.
+- **Microsoft Copilot** — an agent you build in Copilot Studio.
+
+Each page below says exactly where it goes.
+
 ## Pick your platform
 
 Each page has the full install steps **and** how to invoke it, for both the Skill

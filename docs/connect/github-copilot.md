@@ -8,13 +8,13 @@ connector**. They work well together — the MCP connector gives Copilot the
 
 ## Option A — Agent Skill
 
-Copilot supports Agent Skills in **agent mode** — a `SKILL.md` folder it reads
-the name and description of, then activates when a request is relevant. It uses
-the same `SKILL.md` format and skill folders as Claude, so the connectors repo
-skill works without changes.
+A Copilot skill is a `SKILL.md` file on disk — there is no "install from a
+store" button. Copilot uses the same `SKILL.md` format and skill folders as
+Claude, so the connectors repo skill works without changes. Add it one of three
+ways:
 
-**Install (copy the folder)** into a directory Copilot scans —
-`~/.copilot/skills/` (personal) or `.github/skills/` (project):
+**Drop in the folder.** Copy the skill into a directory Copilot scans —
+`~/.copilot/skills/` (personal) or `.github/skills/<name>/` (project):
 
 ```
 cp -r connectors/skills/find-agentic-resources ~/.copilot/skills/
@@ -23,10 +23,14 @@ cp -r connectors/skills/find-agentic-resources ~/.copilot/skills/
 Copilot also reads `~/.claude/skills/` and `.claude/skills/`, so a skill you
 already installed for Claude is picked up automatically.
 
-**Install (from the UI).** In Copilot Chat, open **Configure Chat** (the gear
-icon) → the **Skills** tab → **New Skill (User)** or **New Skill (Workspace)**,
-name it `find-agentic-resources`, and paste the body of the connectors repo's
-[`SKILL.md`](https://github.com/ards-project/connectors/blob/main/skills/find-agentic-resources/SKILL.md).
+**Use the CLI.** `gh skill` (in GitHub CLI) can search, install, and update
+skills straight from a GitHub repo.
+
+**Create it in the editor.** In Copilot Chat, open **Configure Chat** (the gear
+icon) → the **Skills** tab → **New Skill (User)** / **New Skill (Workspace)** —
+this scaffolds an *empty* `SKILL.md` for you to paste the connectors repo's
+[`SKILL.md`](https://github.com/ards-project/connectors/blob/main/skills/find-agentic-resources/SKILL.md)
+into. (This editor UI is only in recent VS Code / Visual Studio 2026 builds.)
 
 ### How to invoke it
 
