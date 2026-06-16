@@ -30,10 +30,11 @@ name it `find-agentic-resources`, and paste the body of the connectors repo's
 
 ### How to invoke it
 
-Just ask in **Copilot Chat (Agent mode)** — Copilot reads each skill's
-description and activates the relevant one on its own:
+Copilot won't fire this Skill automatically — invoke it explicitly with its
+slash command. In **Copilot Chat (Agent mode)**, type `/agentfinder` followed by
+what you need:
 
-> "Find me an MCP server for querying Postgres."
+> `/agentfinder` find me an MCP server for querying Postgres
 
 It asks which Agent Finder to search, queries it, and lists the matches. Pair it
 with the MCP connector (Option B) so it can make the call and never auto-installs.
