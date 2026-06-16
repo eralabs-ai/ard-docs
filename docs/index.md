@@ -18,7 +18,7 @@ An agentic resource is any external capability an AI client can call on to do a 
 
 **It is not an execution runtime:** ARD is not MCP, A2A, Skills, AI Catalog, or an API runtime, and it does not replace them.
 
-**It is not a central catalog:** Different discovery services can index different resources, serve different communities, and apply varying trust, ranking, and access policies.
+**It is not a central catalog:** There will be many discovery services, each indexing different resources, serving different communities, and applying its own trust, ranking, and access policies. Every enterprise can run its own — much like an intranet has its own search engine over internal content. And on the public web there will be many, some optimizing for quality and trust, others for coverage.
 
 ## Who is behind ARD?
 
