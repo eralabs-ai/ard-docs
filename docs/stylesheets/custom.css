@@ -88,8 +88,48 @@ html[data-md-color-scheme="slate"] .md-typeset pre {
 }
 
 .md-footer {
-  border-top: 1px solid var(--md-default-fg-color--lightest) !important;
   background-color: var(--md-default-bg-color) !important;
+  border-top: 1px solid var(--md-default-fg-color--lightest) !important;
+}
+
+.md-footer-meta {
+  background-color: var(--md-default-bg-color) !important;
+  color: var(--md-default-fg-color) !important;
+  border-top: 1px solid var(--md-default-fg-color--lightest) !important;
+}
+
+.md-footer-meta__inner {
+  color: var(--md-default-fg-color) !important;
+}
+
+.md-footer-meta a {
+  color: var(--md-default-fg-color--light) !important;
+}
+
+/* Light Theme overrides for custom styling */
+[data-md-color-scheme="default"] {
+  --md-footer-fg-color: #000000 !important;
+  --md-footer-fg-color--light: #5a6275 !important;
+  --md-footer-bg-color: #ffffff !important;
+  --md-footer-bg-color--dark: #ffffff !important;
+}
+
+[data-md-color-scheme="default"] .md-footer {
+  border-top: 1px solid #ffffff !important;
+}
+
+[data-md-color-scheme="default"] .md-footer-meta {
+  border-top: 1px solid #ffffff !important;
+}
+
+[data-md-color-scheme="default"] .md-copyright,
+[data-md-color-scheme="default"] .md-copyright__highlight,
+[data-md-color-scheme="default"] .md-footer-meta__inner,
+[data-md-color-scheme="default"] .md-footer-meta a,
+[data-md-color-scheme="default"] .md-footer__direction,
+[data-md-color-scheme="default"] .md-footer__title,
+[data-md-color-scheme="default"] .md-footer__button {
+  color: #000000 !important;
 }
 
 /* Upcoming Cards Grid Layout */
