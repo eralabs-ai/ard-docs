@@ -9,7 +9,6 @@
 **Authors**:
 
 - Junjie Bu — Google
-- Scott Courtney — GoDaddy
 - R.V.Guha — Microsoft
 - Shaun Smith — Hugging Face
 
