@@ -73,6 +73,8 @@ plugins:
       redirect_maps:
         comparisons.md: interoperability.md
         how_agents_search.md: how_to_build_a_client.md
+        # 'Why ARD?' (Overview & Architecture) folded into 'How ARD works'.
+        why.md: how_ard_works.md
         # 'Connect Copilot' was split into separate GitHub / Microsoft pages.
         connect/copilot.md: connect/github-copilot.md
 
@@ -82,7 +84,7 @@ nav:
   - Get started: get_started.md
   - About:
     - Introduction: introduction.md
-    - Why ARD?: why.md
+    - How ARD works: how_ard_works.md
     - Interoperability: interoperability.md
     - Contributors: contributors.md
     - Reference Implementations: ref_implementations.md

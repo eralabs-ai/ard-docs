@@ -80,10 +80,9 @@ need — plus optional referrals:
 }
 ```
 
-!!! warning "`score` is relevance only"
-    `score` (0–100) is a semantic relevance ranking from the discovery service.
-    Your client **MUST NOT** read it as a trust, compliance, or safety rating —
-    do that independently (Step 4).
+Note that `score` (0–100) is a semantic relevance ranking from the discovery
+service. Your client **MUST NOT** read it as a trust, compliance, or safety
+rating — do that independently (Step 4).
 
 ## Step 4 — Verify trust before using anything
 
