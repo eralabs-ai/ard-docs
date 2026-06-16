@@ -36,12 +36,22 @@ Traditional tool selection requires stuffing every available schema into the sys
 The specification's role here is narrow and deliberate: it gives a publisher a **mechanism to assert verifiable claims**, and a registry or client a **standard way to check them**. ARD itself verifies nothing and vouches for no one. An entry can carry:
 
 - **Domain-anchored identity** — a mechanism to declare a publisher domain in the entry's URN (`urn:ai:acme.com:...`), so identity is rooted in DNS rather than a self-asserted label and can be checked by whoever consumes the entry.
-- **Verified publishers** — a mechanism for a publisher to *demonstrate* they are who they claim: a `trustManifest.identity` (e.g. `did:web`, SPIFFE) that a registry or client cryptographically verifies against the publisher's domain. The protocol carries the claim; the registry or client performs the verification.
+- **Verified publishers** — a mechanism for a publisher to *demonstrate* they are who they claim: a `trustManifest.identity` (e.g. `did:web`, SPIFFE, or an Agent Name Service (ANS) identity) that a registry or client cryptographically verifies against the publisher's domain. The protocol carries the claim; the registry or client performs the verification.
 - **Signed metadata** — a mechanism to attach a detached JWS `signature` over the trust manifest, so a client can confirm the record was not altered in transit or by an intermediary.
 - **Provenance** — a mechanism to declare lineage (`derivedFrom`, `publishedFrom`) that records where a resource came from.
 - **Attestations** — a mechanism to reference verifiable compliance artifacts (SOC2, HIPAA, GDPR, …) so they can be fetched and checked.
 
 In every case ARD *enables the communication* of a trust signal. Whether the signal checks out, and what weight to give it, is the registry's and the client's decision — not the protocol's.
+
+---
+
+## How does ARD relate to the Agent Name Service (ANS)?
+
+They are complementary. ARD focuses on task-based discovery — given a job, which agentic resource fits and where to reach it — across many kinds of resource. The Agent Name Service (ANS) focuses on secure naming and identity: a DNS-inspired directory where an agent's name resolves to a PKI-verified (X.509) identity. The two reinforce each other — discovery is only useful if you can trust the identity behind a result.
+
+ARD is built to carry that identity rather than reinvent it. A catalog entry's `trustManifest.identity` is an open field: alongside `did:web` and SPIFFE, it can reference an ANS identity, so a registry or client can resolve and verify the publisher through ANS before invoking. ARD communicates the claim; ANS is one of the mechanisms a consumer uses to verify it.
+
+In short: find the resource with ARD, and trust the name behind it with ANS.
 
 ---
 
