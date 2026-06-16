@@ -64,6 +64,13 @@ extra_css:
   - stylesheets/homepage.css
   - stylesheets/nav.css
 
+# Build hooks
+# spec_from_canonical renders the spec page from the canonical ard-spec repo at
+# build time (single source of truth; no manual sync). Falls back to the
+# committed docs/spec.md if the repo isn't reachable.
+hooks:
+  - hooks/spec_from_canonical.py
+
 # Plugins
 # Empty list (not omitted) so MkDocs does NOT re-enable its default `search`
 # plugin — this removes the header search box.
