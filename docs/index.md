@@ -27,4 +27,4 @@ To understand the motivation and design, start with the [Introduction](introduct
 
 ## Open Source & License
 
-Agentic Resource Discovery (ARD) and its resources are licensed under the [Apache License 2.0](https://github.com/ards-project/docs/blob/main/LICENSE) and welcomes [contributions](contributing.md) from the community.
+Agentic Resource Discovery (ARD) and its resources are licensed under the [Apache License 2.0](https://github.com/ards-project/docs/blob/main/LICENSE) and welcomes contributions from the community.
