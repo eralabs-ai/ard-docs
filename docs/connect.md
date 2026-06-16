@@ -3,7 +3,8 @@
 Use ARD directly from a chatbot to **find tools, skills, MCP servers, and agents
 for a task** — and decide what to install. The
 [connectors](https://github.com/ards-project/connectors) repository provides
-ready-made setups for **Claude, ChatGPT, Microsoft Copilot, and Gemini**.
+ready-made setups for **Claude, ChatGPT, GitHub Copilot, Microsoft Copilot, and
+Gemini**.
 
 The connectors are **client-side only**. A discovery service such as
 **[Agent Finder](https://github.com/agentfinder)** exposes the search interface;
@@ -41,7 +42,8 @@ and the MCP connector:
 
 - **[Claude](connect/claude.md)** — Skill (Claude Code plugin) + remote MCP connector
 - **[ChatGPT](connect/chatgpt.md)** — Skill (beta) + remote MCP (Developer mode)
-- **[Microsoft Copilot](connect/copilot.md)** — agent instructions + remote MCP (Copilot Studio / VS Code)
+- **[GitHub Copilot](connect/github-copilot.md)** — custom instructions + remote MCP (VS Code `mcp.json`)
+- **[Microsoft Copilot](connect/microsoft-copilot.md)** — declarative agent + remote MCP (Copilot Studio)
 - **[Gemini](connect/gemini.md)** — Gem + remote MCP (Gemini CLI)
 
 ## Endpoints

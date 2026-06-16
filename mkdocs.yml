@@ -73,6 +73,8 @@ plugins:
       redirect_maps:
         comparisons.md: interoperability.md
         how_agents_search.md: how_to_build_a_client.md
+        # 'Connect Copilot' was split into separate GitHub / Microsoft pages.
+        connect/copilot.md: connect/github-copilot.md
 
 # Navigation
 nav:
@@ -91,7 +93,8 @@ nav:
       - Overview: connect.md
       - Claude: connect/claude.md
       - ChatGPT: connect/chatgpt.md
-      - Microsoft Copilot: connect/copilot.md
+      - GitHub Copilot: connect/github-copilot.md
+      - Microsoft Copilot: connect/microsoft-copilot.md
       - Gemini: connect/gemini.md
     - How to publish: how_to_publish.md
     - How to add ARD support to your agent: how_to_build_a_client.md

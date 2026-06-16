@@ -31,7 +31,7 @@ GitHub's Agent Finder is a discovery service for agentic resources — Skills, t
 
 ### GitHub Copilot
 
-GitHub Copilot can search it directly: add Agent Finder as a remote MCP tool (or as custom instructions), then ask Copilot to find a capability for your task and it returns ranked matches you choose to install. See [Connect Microsoft Copilot](connect/copilot.md) for the full setup — it uses this same endpoint as its example.
+GitHub Copilot can search it directly: add Agent Finder as a remote MCP tool (or as custom instructions), then ask Copilot to find a capability for your task and it returns ranked matches you choose to install. See [Connect GitHub Copilot](connect/github-copilot.md) for the full setup — it uses this same endpoint as its example.
 
 ### HTTP API
 
