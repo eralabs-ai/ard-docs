@@ -20,15 +20,15 @@ All of you are building agents, tools, Skills, and more. We encourage you to add
 
 ## Acknowledgements
 
-We thank the following people for their contributions and feedback, in no particular order.
+We thank the following people for their contributions and feedback, in alphabetical order.
 
-- Microsoft — Miesha Baker, Shelby Delano, Kevin Scott, Dee Templeton, Ryan Nadel, Jennifer Marsman, Lisa Jaloza, Lindsey Li, Chelsea Carter, Adam Zukor
-- GitHub — Evan Boyle, Trent Jones, Jeremy Moseley, Meagan Cojocar
-- GoDaddy — Scott Courtney
-- Nvidia — Aysen Ilkhabar
-- Google — Alan Blount, Rao Surapaneni, Todd Segal, John Murray, Ines David, Sam Sharaf, Sampath Kumar Maddula, Natasha Balasubramanian, Polong Lin, Srinivas Krishnan, Krishna Thota
-- Cisco — Luca Muscariello, Ramiz Polic, Karen Jaworski, Vijoy Pandey, Guillaume De Saint Marc
-- Salesforce — Vijay Pandiarajan, Mariano Gonzales
-- Amazon Web Services — Martin Ristov, Jeffrey Damick
+- Amazon Web Services — Jeffrey Damick, Martin Ristov
+- Cisco — Guillaume De Saint Marc, Karen Jaworski, Luca Muscariello, Ramiz Polic, Vijoy Pandey
 - Databricks — Jonathan Keller, Vinod Marur
+- GitHub — Evan Boyle, Jeremy Moseley, Meagan Cojocar, Trent Jones
+- GoDaddy — Scott Courtney
+- Google — Alan Blount, Ines David, John Murray, Krishna Thota, Natasha Balasubramanian, Polong Lin, Rao Surapaneni, Sam Sharaf, Sampath Kumar Maddula, Srinivas Krishnan, Todd Segal
+- Microsoft — Adam Zukor, Chelsea Carter, Dee Templeton, Jennifer Marsman, Kevin Scott, Lindsey Li, Lisa Jaloza, Miesha Baker, Ryan Nadel, Shelby Delano
+- Nvidia — Aysen Ilkhabar
+- Salesforce — Mariano Gonzales, Vijay Pandiarajan
 - Snowflake — Baris Gultekin, Vivek Raghunathan
