@@ -2,13 +2,16 @@
 
 ## Hugging Face Discover Tool
 
-The Hugging Face [Discover Tool](https://github.com/huggingface/hf-discover) provides search access to thousands of Skills, ML Applications, and MCP Servers — on Hugging Face and across other ARD discovery services.
+The Hugging Face [Discover Tool](https://github.com/huggingface/hf-discover) provides search access to thousands of Skills, ML Applications, and MCP Servers — on Hugging Face - or any other ARD compliant service.
 
 ### Hugging Face CLI (`hf`)
 
-`discover` is built into the [Hugging Face CLI](https://github.com/huggingface/huggingface_hub) (`hf`). Install it standalone with `uv tool install hf-discover`, or use the `hf` CLI directly:
+`discover` is built into the [Hugging Face CLI](https://github.com/huggingface/huggingface_hub) (`hf`). To get started:
 
 ```bash
+# Install the Hugging Face CLI tool:
+uv tool install huggingface_hub
+
 # Search for resources to train a model
 hf discover search "Fine tune a language model"
 
@@ -17,17 +20,21 @@ hf discover search "Generate an image" --json --kind mcp
 
 # Search other registries
 hf discover search "Purchase aeroplane tickets" --registry-url <catalog-url>
+
+# Navigate a federated catalog from a website
+hf discover navigate <web-url> "Research biomedical datasets"
 ```
 
-Navigate mode locates AI Catalogs from URLs and traverses federated registries.
+### REST and MCP API Access
 
-### REST API
+Query the Hugging Face catalog service directly via:
 
-Reach the same data over HTTP — the catalog at `https://huggingface.co/.well-known/ai-catalog.json`, or call search directly at `https://evalstate-hf-discover.hf.space/search`.
+  - The REST API at: `https://huggingface-hf-discover.hf.space/search`
+  - MCP at: `https://huggingface-hf-discover.hf.space/mcp`
 
 ## GitHub Agent Finder
 
-GitHub's Agent Finder is a discovery service for agentic resources — Skills, tools, and MCP servers — reachable over HTTP at `agentfinder.github.com`.
+GitHub's Agent Finder is a discovery service for agentic resources — Skills, tools, and MCP servers — reachable over HTTPS at `https://agentfinder.github.com/api/v1`.
 
 ### GitHub Copilot
 
@@ -35,4 +42,30 @@ GitHub Copilot can search it directly: add Agent Finder as a remote MCP tool (or
 
 ### HTTP API
 
-Call search directly at `http://agentfinder.github.com` (`POST /search`).
+Call search directly at `POST https://agentfinder.github.com/api/v1/search`. The MCP endpoint is `https://agentfinder.github.com/api/v1/mcp`.
+
+## Cisco AI Catalog
+
+The [AGNTCY Agent Directory](https://dir.agntcy.org) reference implementation of ARD is deployed by the Cisco [AI Catalog](https://ai-catalog.outshift.io).
+The catalog can be pulled from [`ai-catalog.outshift.io/.well-known/ai-catalog.json`](https://ai-catalog.outshift.io/.well-known/ai-catalog.json).
+It supports secure verification through trust manifests, so clients can validate publisher identity and resource integrity before use.
+
+### 1. Pull the catalog manifest
+
+```bash
+curl -sS https://ai-catalog.outshift.io/.well-known/ai-catalog.json | jq '.specVersion, .host.displayName'
+```
+
+### 2. Discover A2A cards
+
+```bash
+curl -sS 'https://ai-catalog.outshift.io/v1/agents?filter=type%3Dapplication%2Fa2a-agent-card%2Bjson' \
+	| jq -r '.results[] | "\(.displayName)\t\(.data.card_data.url // .identifier)"'
+```
+
+### 3. Search by card type and extract trust details
+
+```bash
+curl -sS 'https://ai-catalog.outshift.io/v1/agents?filter=type%3Dapplication%2Fmcp-server-card%2Bjson' \
+	| jq -r '.results[] | {displayName, identity: .trustManifest.identity, identityType: .trustManifest.identityType, cardUrl: .data.card_data.url} | @json'
+```

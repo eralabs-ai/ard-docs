@@ -17,14 +17,19 @@ Nothing is installed automatically.
 Once connected, ask your chatbot to find a capability for a task. These
 ready-made connectors will:
 
-1. **Ask which Agent Finder endpoint** to search (you stay in control of where
-   results come from).
+1. **Let you pick an Agent Finder** to search — from a menu of named options
+   (GitHub, Hugging Face, or your own), so you stay in control of where results
+   come from. The Claude skill remembers your choice.
 2. **Query** it.
 3. **Present a ranked list** of matching resources — name, type, description,
    publisher, endpoint, and relevance score (relevance only, *not* a trust or
    safety rating).
 4. **Never auto-install.** Only after you pick a result does it show you how to
    add that resource yourself.
+
+**GitHub Copilot is the exception.** Its skill defaults to GitHub's Agent Finder,
+so it skips step 1 and searches GitHub directly. The other four ask which finder
+to use.
 
 ### This is one design among several
 
@@ -53,8 +58,18 @@ own at any of these levels.
 | **MCP** | Add Agent Finder as a **remote MCP connector** so the chatbot gets a native `search` tool. | You want a first-class tool and your client supports MCP connectors. |
 
 Most setups use **both**: the MCP connector (or an Action) makes the actual call,
-and the Skill/instructions supply the "ask first, present, never auto-install"
+and the Skill/instructions supply the "pick a finder, present, never auto-install"
 behavior.
+
+How you add the Skill itself differs by client, and there is rarely a single
+"install" button:
+
+- **Claude and GitHub Copilot** — a `SKILL.md` file you drop into a skills folder (`~/.claude/skills/`, `~/.copilot/skills/`), or install with a command.
+- **ChatGPT** — a Skill you add in the workspace UI (Business / Enterprise / Edu / Team plans).
+- **Gemini** — a Gem you create in the Gemini app.
+- **Microsoft Copilot** — an agent you build in Copilot Studio.
+
+Each page below says exactly where it goes.
 
 ## Pick your platform
 
@@ -63,21 +78,23 @@ and the MCP connector:
 
 - **[Claude](connect/claude.md)** — Skill (Claude Code plugin) + remote MCP connector
 - **[ChatGPT](connect/chatgpt.md)** — Skill (beta) + remote MCP (Developer mode)
-- **[GitHub Copilot](connect/github-copilot.md)** — custom instructions + remote MCP (VS Code `mcp.json`)
+- **[GitHub Copilot](connect/github-copilot.md)** — Agent Skill (`SKILL.md`) + remote MCP (VS Code `mcp.json`)
 - **[Microsoft Copilot](connect/microsoft-copilot.md)** — declarative agent + remote MCP (Copilot Studio)
 - **[Gemini](connect/gemini.md)** — Gem + remote MCP (Gemini CLI)
 
 ## Endpoints
 
-There is **no built-in default** Agent Finder — you choose which discovery
-services to trust. The connector asks which to query, and you can keep a list in
-its `agent-finders.json`. The per-platform examples use two real discovery
-services interchangeably:
+The connectors ship with two named Agent Finders — **GitHub Agent Finder** and
+**Hugging Face Discover** — and you can add your own in `agent-finders.json`. They
+let you pick which to search (the Claude skill shows a menu and **remembers your
+choice** in `~/.agentfinder/finders.json`). **GitHub Copilot is the exception:** it
+defaults to GitHub's Agent Finder. The examples below use the two shipped services
+interchangeably:
 
 | Discovery service | Search endpoint |
 | --- | --- |
-| GitHub Agent Finder | `agentfinder.github.com` |
-| Hugging Face Discover | `https://evalstate-hf-discover.hf.space/search` |
+| GitHub Agent Finder | `https://agentfinder.github.com/api/v1/search` |
+| Hugging Face Discover | `https://huggingface-hf-discover.hf.space/search` |
 
 Point at either of these — or any compliant ARD discovery service — when a step
 asks for an endpoint. The connector never queries an endpoint you didn't choose.

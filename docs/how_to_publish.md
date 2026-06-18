@@ -2,6 +2,8 @@
 
 Exposing your agentic resources (MCP servers, Skills, ACP agents, APIs) to ARD discovery services is a simple three-step procedure.
 
+This guide is about publishing on the public internet so that public discovery services can crawl and index your resources. Publishing makes you discoverable — it does not guarantee that any particular ARD-implementing service will find or index you; each service decides for itself what it includes. Inside an enterprise, agentic resources are often collected through other workflows entirely — an internal registry, a curated inventory, or a vendor feed — rather than open web crawling, so check how your organization gathers them.
+
 ---
 
 ## Step 1: Create the manifest (`ai-catalog.json`)
@@ -32,7 +34,7 @@ Create a static `ai-catalog.json` manifest listing your agentic resources. Below
 }
 ```
 
-*   **`identifier`**: Naming must follow the domain-anchored URN standard: `urn:ai:<your-domain>:<agent-name>`.
+*   **`identifier`**: Naming must follow the domain-anchored URN standard: `urn:ai:<your-domain>:<namespace>:<agent-name>`.
 *   **`representativeQueries`**: Provide **2–5 natural language queries** to enable high-fidelity semantic vector search.
 
 ---

@@ -7,28 +7,31 @@ makes the request.
 
 ## Option A — Skill
 
-ChatGPT Skills are reusable instruction sets, currently in **beta** and limited to
-**Business, Enterprise, Edu, Teachers, and Healthcare** plans.
+ChatGPT Skills are reusable instruction sets, available on **Business,
+Enterprise, Edu, and Team** plans. Unlike Claude and Copilot, a ChatGPT Skill
+lives in your workspace, not in a file — you add it through the UI.
 
-**Install.** Create a new Skill and paste the instructions from the connectors
-repo ([`skills/chatgpt/`](https://github.com/ards-project/connectors/tree/main/skills/chatgpt)):
+**Install.** In your ChatGPT workspace, use **Add skill** to open the Skills
+editor, then create the skill from the connectors repo
+([`skills/chatgpt/`](https://github.com/ards-project/connectors/tree/main/skills/chatgpt)):
 
-- **Name:** `find-agentic-resources`
-- **Description / instructions:** copy the body of that file (it tells ChatGPT to
-  ask which Agent Finder to query, present the ranked results, and never
-  auto-install).
+- **Name:** `agentfinder`
+- **Instructions:** paste the body of that file (show a menu of named Agent
+  Finders, remember the choice, present the ranked results, and never auto-install).
 
 A Skill on its own can't make network calls, so pair it with **Option B** (MCP
 connector) or a custom **Action** whose OpenAPI calls
-`POST http://agentfinder.github.com/search`.
+`POST https://agentfinder.github.com/api/v1/search`.
 
 ### How to invoke it
 
-Ask ChatGPT in plain language:
+ChatGPT can use the skill automatically when it's relevant, or you can invoke it
+explicitly by @-mentioning it:
 
-> "Find me a tool for converting CSVs to charts."
+> @agentfinder find me a tool for converting CSVs to charts
 
-The Skill activates, asks which Agent Finder to search, runs the query via the
+Either way it shows a menu of Agent Finders the first time (and remembers your
+pick), runs the query via the
 connector/Action, and presents the matches for you to pick from.
 
 ## Option B — Remote MCP connector (Developer mode)
@@ -39,7 +42,7 @@ ChatGPT supports **remote MCP servers** (HTTPS, Streamable HTTP / SSE) through
 1. **Settings → Apps → Advanced settings → Developer mode** (enable it).
 2. **Create app** next to Advanced settings.
 3. Name it `Agent Finder` and paste the remote MCP URL —
-   `http://agentfinder.github.com` (or your own discovery service).
+   `https://agentfinder.github.com/api/v1/mcp` (or your own discovery service).
 4. Choose authentication — **No authentication** for an open Agent Finder, or
    **OAuth** if it requires sign-in.
 5. Save — the `search` tool is now available in chat.
@@ -52,7 +55,7 @@ first and never auto-installs.
 
 ## Endpoint
 
-Examples use GitHub's Agent Finder (`agentfinder.github.com`); Hugging Face
-Discover (`https://evalstate-hf-discover.hf.space/search`) works the same way.
+Examples use GitHub's Agent Finder (`https://agentfinder.github.com/api/v1`); Hugging Face
+Discover (`https://huggingface-hf-discover.hf.space/search`) works the same way.
 Point at either — or any compliant ARD discovery service — see
 [Endpoints](../connect.md#endpoints).

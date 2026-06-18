@@ -4,11 +4,13 @@ This guide is for developers building an AI **client** — an orchestrator, agen
 or harness — that should **discover agentic resources at runtime** instead of
 having its tools hardcoded. With ARD, your client asks a discovery service
 *"what is available for this task?"*, picks a resource, and connects to it over
-that resource's own protocol.
+that resource's own mechanism.
 
 You want this when your agent needs capabilities — MCP servers, A2A agents,
 Skills, APIs — that aren't wired in ahead of time, and you want that set to stay
 current without re-shipping the client.
+
+Already using a major chatbot? For Claude, ChatGPT, GitHub Copilot, Microsoft Copilot, and Gemini we provide ready-made connectors — see [Connect a chatbot](connect.md). You're welcome to build on or improve those. This guide is for when you have your own client and want to add ARD support directly.
 
 ## What a client does
 
@@ -16,7 +18,7 @@ current without re-shipping the client.
 2. Turn the user's task into a search and send it to those services.
 3. Rank results and, optionally, federate across services.
 4. Verify trust before using anything.
-5. Connect to the chosen resource over its native protocol and use it.
+5. Connect to the chosen resource over its native mechanism and use it.
 
 ## Step 1 — Configure discovery endpoints
 
@@ -80,10 +82,9 @@ need — plus optional referrals:
 }
 ```
 
-!!! warning "`score` is relevance only"
-    `score` (0–100) is a semantic relevance ranking from the discovery service.
-    Your client **MUST NOT** read it as a trust, compliance, or safety rating —
-    do that independently (Step 4).
+Note that `score` (0–100) is a semantic relevance ranking from the discovery
+service. Your client **MUST NOT** read it as a trust, compliance, or safety
+rating — do that independently (Step 4).
 
 ## Step 4 — Verify trust before using anything
 
@@ -98,7 +99,7 @@ Before connecting to or invoking a discovered resource, verify the publisher:
 4. **Verify the signature** — validate the detached JWS over the trust manifest
    to confirm the record wasn't altered in transit.
 
-Trust is your decision (and the registry's). The protocol only carries the
+Trust is your decision (and the registry's). The specification only carries the
 evidence; it never vouches for a resource on its own.
 
 ## Step 5 — Federate (optional)
@@ -111,7 +112,7 @@ service; `none` keeps it local. You control the topology.
 ## Step 6 — Connect and use
 
 Discovery tells you *which* resource fits and *where* to reach it; you then
-connect over that resource's own protocol:
+connect over that resource's own mechanism:
 
 - **`application/mcp-server+json`** — fetch the artifact (`url`) or read inline
   `data`, then speak MCP (JSON-RPC) to the server.
@@ -133,4 +134,4 @@ curl -s https://your-discovery-service/search \
 ```
 
 Pick a result, verify its `trustManifest`, fetch its `url`, and connect over the
-resource's own protocol.
+resource's own mechanism.

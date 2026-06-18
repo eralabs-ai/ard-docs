@@ -155,3 +155,7 @@ encrypted/
 .staticrypt.json
 # Local docs preview venv
 .venv-docs/
+
+# Python bytecode
+__pycache__/
+*.pyc
