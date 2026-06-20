@@ -110,3 +110,6 @@ nav:
     - ARD Specification: spec.md
     - AI Catalog Standard: ai_catalog_spec.md
   - Give feedback: '/faq/#how-can-i-give-feedback'
+
+# Copyright
+copyright: Apache License, Version 2.0.
