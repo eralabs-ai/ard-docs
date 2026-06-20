@@ -2,8 +2,6 @@
 site_name: AgenticResourceDiscovery.org
 site_url: https://agenticresourcediscovery.org/
 site_description: A protocol for discovering agentic resources — tools, Skills, MCP servers, APIs, workflows, and agents — for AI clients
-repo_name: ards-project/ard-spec
-repo_url: https://github.com/ards-project/ard-spec
 
 # Configuration
 theme:
