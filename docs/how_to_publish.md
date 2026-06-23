@@ -19,7 +19,7 @@ Create a static `ai-catalog.json` manifest listing your agentic resources. Below
   },
   "entries": [
     {
-      "identifier": "urn:ai:acme.com:server:weather",
+      "identifier": "urn:air:acme.com:server:weather",
       "displayName": "Acme Weather Telemetry Server",
       "type": "application/mcp-server+json",
       "url": "https://api.acme.com/mcp/weather.json",
@@ -34,7 +34,7 @@ Create a static `ai-catalog.json` manifest listing your agentic resources. Below
 }
 ```
 
-*   **`identifier`**: Naming must follow the domain-anchored URN standard: `urn:ai:<your-domain>:<namespace>:<agent-name>`.
+*   **`identifier`**: Naming must follow the domain-anchored URN standard: `urn:air:<your-domain>:<namespace>:<agent-name>`.
 *   **`representativeQueries`**: Provide **2–5 natural language queries** to enable high-fidelity semantic vector search.
 
 ---
